@@ -9,8 +9,7 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   static const List<Locale> supportedLocales = [
     Locale('ko', 'KR'),
@@ -25,48 +24,34 @@ class AppLocalizations {
   String get download => _localizedValues[locale.languageCode]!['download']!;
 
   // Hero
-  String get heroHeadline =>
-      _localizedValues[locale.languageCode]!['heroHeadline']!;
-  String get heroSubtext =>
-      _localizedValues[locale.languageCode]!['heroSubtext']!;
-  String get coconutWallet =>
-      _localizedValues[locale.languageCode]!['coconutWallet']!;
-  String get coconutVault =>
-      _localizedValues[locale.languageCode]!['coconutVault']!;
-  String get openSource =>
-      _localizedValues[locale.languageCode]!['openSource']!;
-  String get bitcoinOnly =>
-      _localizedValues[locale.languageCode]!['bitcoinOnly']!;
+  String get heroHeadline => _localizedValues[locale.languageCode]!['heroHeadline']!;
+  String get heroSubtext => _localizedValues[locale.languageCode]!['heroSubtext']!;
+  String get coconutWallet => _localizedValues[locale.languageCode]!['coconutWallet']!;
+  String get coconutVault => _localizedValues[locale.languageCode]!['coconutVault']!;
+  String get openSource => _localizedValues[locale.languageCode]!['openSource']!;
+  String get bitcoinOnly => _localizedValues[locale.languageCode]!['bitcoinOnly']!;
 
   // Product Cards
-  String get walletTitle =>
-      _localizedValues[locale.languageCode]!['walletTitle']!;
-  String get walletDesc =>
-      _localizedValues[locale.languageCode]!['walletDesc']!;
-  String get vaultTitle =>
-      _localizedValues[locale.languageCode]!['vaultTitle']!;
+  String get walletTitle => _localizedValues[locale.languageCode]!['walletTitle']!;
+  String get walletDesc => _localizedValues[locale.languageCode]!['walletDesc']!;
+  String get vaultTitle => _localizedValues[locale.languageCode]!['vaultTitle']!;
   String get vaultDesc => _localizedValues[locale.languageCode]!['vaultDesc']!;
   String get learnMore => _localizedValues[locale.languageCode]!['learnMore']!;
 
   // Core Values
-  String get coreValuesTitle =>
-      _localizedValues[locale.languageCode]!['coreValuesTitle']!;
+  String get coreValuesTitle => _localizedValues[locale.languageCode]!['coreValuesTitle']!;
   String get value1 => _localizedValues[locale.languageCode]!['value1']!;
   String get value2 => _localizedValues[locale.languageCode]!['value2']!;
   String get value3 => _localizedValues[locale.languageCode]!['value3']!;
   String get value4 => _localizedValues[locale.languageCode]!['value4']!;
 
   // Open Source
-  String get openSourceTitle =>
-      _localizedValues[locale.languageCode]!['openSourceTitle']!;
-  String get openSourceDesc =>
-      _localizedValues[locale.languageCode]!['openSourceDesc']!;
-  String get viewOnGithub =>
-      _localizedValues[locale.languageCode]!['viewOnGithub']!;
+  String get openSourceTitle => _localizedValues[locale.languageCode]!['openSourceTitle']!;
+  String get openSourceDesc => _localizedValues[locale.languageCode]!['openSourceDesc']!;
+  String get viewOnGithub => _localizedValues[locale.languageCode]!['viewOnGithub']!;
 
   // Trust
-  String get trustTitle =>
-      _localizedValues[locale.languageCode]!['trustTitle']!;
+  String get trustTitle => _localizedValues[locale.languageCode]!['trustTitle']!;
   String get trustDesc => _localizedValues[locale.languageCode]!['trustDesc']!;
 
   // FAQ
@@ -81,18 +66,12 @@ class AppLocalizations {
   String get faq4A => _localizedValues[locale.languageCode]!['faq4A']!;
 
   // Footer
-  String get footerLinks =>
-      _localizedValues[locale.languageCode]!['footerLinks']!;
-  String get footerPolicies =>
-      _localizedValues[locale.languageCode]!['footerPolicies']!;
-  String get footerCommunity =>
-      _localizedValues[locale.languageCode]!['footerCommunity']!;
-  String get privacyPolicy =>
-      _localizedValues[locale.languageCode]!['privacyPolicy']!;
-  String get termsOfService =>
-      _localizedValues[locale.languageCode]!['termsOfService']!;
-  String get openSourceNotice =>
-      _localizedValues[locale.languageCode]!['openSourceNotice']!;
+  String get footerLinks => _localizedValues[locale.languageCode]!['footerLinks']!;
+  String get footerPolicies => _localizedValues[locale.languageCode]!['footerPolicies']!;
+  String get footerCommunity => _localizedValues[locale.languageCode]!['footerCommunity']!;
+  String get privacyPolicy => _localizedValues[locale.languageCode]!['privacyPolicy']!;
+  String get termsOfService => _localizedValues[locale.languageCode]!['termsOfService']!;
+  String get openSourceNotice => _localizedValues[locale.languageCode]!['openSourceNotice']!;
   String get contact => _localizedValues[locale.languageCode]!['contact']!;
 
   static final Map<String, Map<String, String>> _localizedValues = {
@@ -105,12 +84,12 @@ class AppLocalizations {
       'download': 'Get the app',
 
       // Hero
-      'heroHeadline': '비트코인 셀프커스터디의 새로운 기준',
+      'heroHeadline': '비트코인 셀프커스터디의\n새로운 기준',
       'heroSubtext': '코코넛처럼 단단하고 친숙한 비트코인 셀프커스터디용 비트코인 지갑을 만나보세요.',
-      'coconutWallet': 'Coconut Wallet',
-      'coconutVault': 'Coconut Vault',
-      'openSource': 'Open Source',
-      'bitcoinOnly': 'Bitcoin-only',
+      'coconutWallet': '코코넛 월렛',
+      'coconutVault': '코코넛 볼트',
+      'openSource': '오픈 소스',
+      'bitcoinOnly': '비트코인 온리',
 
       // Product Cards
       'walletTitle': 'Coconut Wallet',
@@ -138,17 +117,13 @@ class AppLocalizations {
       // FAQ
       'faqTitle': '자주 묻는 질문',
       'faq1Q': '왜 비트코인만 지원하나요?',
-      'faq1A':
-          '비트코인은 가장 안전하고 검증된 디지털 자산입니다. 단일 자산에 집중함으로써 보안성을 극대화하고 복잡성을 줄였습니다.',
+      'faq1A': '비트코인은 가장 안전하고 검증된 디지털 자산입니다. 단일 자산에 집중함으로써 보안성을 극대화하고 복잡성을 줄였습니다.',
       'faq2Q': '와치온리 지갑과 하드월렛의 차이는?',
-      'faq2A':
-          '와치온리 지갑은 잔액과 거래내역만 확인할 수 있고, 하드월렛은 개인키를 안전하게 보관하며 거래에 서명할 수 있습니다.',
+      'faq2A': '와치온리 지갑은 잔액과 거래내역만 확인할 수 있고, 하드월렛은 개인키를 안전하게 보관하며 거래에 서명할 수 있습니다.',
       'faq3Q': '복구 문구 백업은 어떻게 하나요?',
-      'faq3A':
-          '복구 문구는 종이에 적어 안전한 곳에 보관하세요. 디지털로 저장하지 마시고, 여러 장소에 분산 보관하는 것을 권장합니다.',
+      'faq3A': '복구 문구는 종이에 적어 안전한 곳에 보관하세요. 디지털로 저장하지 마시고, 여러 장소에 분산 보관하는 것을 권장합니다.',
       'faq4Q': 'PSBT와 에어갭이 무엇인가요?',
-      'faq4A':
-          'PSBT는 부분적으로 서명된 비트코인 거래를 의미하며, 에어갭은 네트워크 연결 없이 안전하게 거래에 서명하는 방식입니다.',
+      'faq4A': 'PSBT는 부분적으로 서명된 비트코인 거래를 의미하며, 에어갭은 네트워크 연결 없이 안전하게 거래에 서명하는 방식입니다.',
 
       // Footer
       'footerLinks': '링크',
@@ -169,8 +144,7 @@ class AppLocalizations {
 
       // Hero
       'heroHeadline': 'A new standard for Bitcoin self-custody',
-      'heroSubtext':
-          'Meet the Bitcoin self-custody wallet that is as strong and friendly as a coconut.',
+      'heroSubtext': 'Meet the Bitcoin self-custody wallet that is as strong and friendly as a coconut.',
       'coconutWallet': 'Coconut Wallet',
       'coconutVault': 'Coconut Vault',
       'openSource': 'Open Source',
@@ -178,11 +152,9 @@ class AppLocalizations {
 
       // Product Cards
       'walletTitle': 'Coconut Wallet',
-      'walletDesc':
-          'A watch-only wallet on your phone. Safer with PSBT and a separate signing device.',
+      'walletDesc': 'A watch-only wallet on your phone. Safer with PSBT and a separate signing device.',
       'vaultTitle': 'Coconut Vault',
-      'vaultDesc':
-          'Turn a spare phone into a hardware-style vault. Offline PSBT signing, no network.',
+      'vaultDesc': 'Turn a spare phone into a hardware-style vault. Offline PSBT signing, no network.',
       'learnMore': 'Learn more',
 
       // Core Values
@@ -194,8 +166,7 @@ class AppLocalizations {
 
       // Open Source
       'openSourceTitle': 'Open Source & Transparency',
-      'openSourceDesc':
-          '100% open source. Auditable by anyone, improved by everyone.',
+      'openSourceDesc': '100% open source. Auditable by anyone, improved by everyone.',
       'viewOnGithub': 'View on GitHub',
 
       // Trust
@@ -207,8 +178,7 @@ class AppLocalizations {
       'faq1Q': 'Why Bitcoin-only?',
       'faq1A':
           'Bitcoin is the most secure and battle-tested digital asset. By focusing on a single asset, we maximize security and minimize complexity.',
-      'faq2Q':
-          'What\'s the difference between watch-only wallet and hardware wallet?',
+      'faq2Q': 'What\'s the difference between watch-only wallet and hardware wallet?',
       'faq2A':
           'Watch-only wallets can only view balances and transactions, while hardware wallets securely store private keys and can sign transactions.',
       'faq3Q': 'How should I backup my recovery phrase?',
@@ -230,8 +200,7 @@ class AppLocalizations {
   };
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override

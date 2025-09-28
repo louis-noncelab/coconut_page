@@ -44,13 +44,17 @@ dependencies:
   # Internationalization
   flutter_localizations:
     sdk: flutter
-  intl: ^0.19.0
+  intl: ^0.20.2
   
   # Icons
   lucide_icons: ^0.257.0
   
   # UI Components
   flutter_svg: ^2.0.10+1
+  coconut_design_system: ^0.9.5
+  
+  # Device and browser info
+  universal_html: ^2.2.4
 
 dev_dependencies:
   flutter_test:
@@ -77,7 +81,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/icons/
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

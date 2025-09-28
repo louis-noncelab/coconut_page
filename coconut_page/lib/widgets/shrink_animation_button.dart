@@ -1,0 +1,174 @@
+import 'package:coconut_design_system/coconut_design_system.dart';
+import 'dart:math' as math;
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class ShrinkAnimationButton extends StatefulWidget {
+  final Widget child;
+  final VoidCallback onPressed;
+  final VoidCallback? onLongPressed;
+  final Color pressedColor;
+  final Color defaultColor;
+  final Color disabledColor;
+  final double borderRadius;
+  final Border? border;
+  final double borderWidth;
+  final List<Color>? borderGradientColors;
+  final double? animationEndValue;
+  final bool isActive;
+  final bool enableHoverEffect; // 호버 효과 활성화 옵션
+
+  const ShrinkAnimationButton({
+    super.key,
+    required this.child,
+    required this.onPressed,
+    this.onLongPressed,
+    this.pressedColor = CoconutColors.gray150,
+    this.defaultColor = CoconutColors.white,
+    this.borderRadius = 24.0,
+    this.borderWidth = 2.0,
+    this.disabledColor = CoconutColors.white,
+    this.border,
+    this.borderGradientColors,
+    this.animationEndValue = 0.97,
+    this.isActive = true,
+    this.enableHoverEffect = true, // 기본값 true
+  });
+
+  @override
+  State<ShrinkAnimationButton> createState() => _ShrinkAnimationButtonState();
+}
+
+class _ShrinkAnimationButtonState extends State<ShrinkAnimationButton> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  bool _isPressed = false;
+  bool _isHovered = false; // 호버 상태 추가
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 100));
+    _animation = Tween<double>(
+      begin: 1.0,
+      end: widget.animationEndValue,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    if (!widget.isActive) return;
+
+    setState(() {
+      _isPressed = true;
+    });
+    _controller.forward();
+  }
+
+  void _onTapUp(TapUpDetails details) {
+    if (!widget.isActive) return;
+
+    _controller.reverse().then((_) {
+      widget.onPressed();
+      setState(() {
+        _isPressed = false;
+      });
+    });
+  }
+
+  void _onTapCancel() {
+    if (!widget.isActive) return;
+
+    _controller.reverse();
+    setState(() {
+      _isPressed = false;
+    });
+  }
+
+  void _onLongPress() {
+    if (!widget.isActive || widget.onLongPressed == null) return;
+
+    widget.onLongPressed!();
+  }
+
+  // 호버 진입 시
+  void _onHoverEnter(PointerEnterEvent event) {
+    if (!widget.isActive || !widget.enableHoverEffect) return;
+
+    setState(() {
+      _isHovered = true;
+    });
+    _controller.forward();
+  }
+
+  // 호버 벗어날 때
+  void _onHoverExit(PointerExitEvent event) {
+    if (!widget.isActive || !widget.enableHoverEffect) return;
+
+    setState(() {
+      _isHovered = false;
+    });
+    _controller.reverse();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: widget.enableHoverEffect ? _onHoverEnter : null,
+      onExit: widget.enableHoverEffect ? _onHoverExit : null,
+      child: GestureDetector(
+        onTapDown: _onTapDown,
+        onTapUp: _onTapUp,
+        onTapCancel: _onTapCancel,
+        onLongPress: widget.onLongPressed != null ? _onLongPress : null,
+        child: ScaleTransition(
+          scale: widget.isActive ? _animation : const AlwaysStoppedAnimation(1.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(widget.borderRadius + 2),
+              gradient: widget.borderGradientColors != null
+                  ? LinearGradient(
+                      colors: widget.borderGradientColors!,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      transform: const GradientRotation(math.pi / 10),
+                    )
+                  : null,
+              border: widget.borderGradientColors == null
+                  ? (widget.border ??
+                      Border.all(
+                        color: widget.isActive
+                            ? (_isPressed || _isHovered) // 호버 상태도 포함
+                                ? widget.pressedColor
+                                : widget.defaultColor
+                            : widget.disabledColor,
+                      ))
+                  : null,
+            ),
+            child: AnimatedContainer(
+              margin: EdgeInsets.all(widget.borderGradientColors != null ? widget.borderWidth : 0),
+              duration: const Duration(milliseconds: 100),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(widget.borderRadius)),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: widget.isActive
+                      ? (_isPressed || _isHovered) // 호버 상태도 포함
+                          ? widget.pressedColor
+                          : widget.defaultColor
+                      : widget.disabledColor,
+                  borderRadius: BorderRadius.circular(widget.borderRadius),
+                ),
+                child: widget.child,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
