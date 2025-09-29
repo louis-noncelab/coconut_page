@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
     if (!_scrollController.hasClients) return originalLeft;
 
     const leftMoveStart = 300.0; // left 이동이 시작되는 스크롤 위치
-    final leftMoveEnd = MediaQuery.of(context).size.height; // left 이동이 완료되는 스크롤 위치
+    final leftMoveEnd = MediaQuery.of(context).size.height + 30; // left 이동이 완료되는 스크롤 위치
 
     if (scrollOffset <= leftMoveStart) {
       // 아직 left 이동이 시작되지 않음
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
     final easedLeftProgress = Curves.easeInOut.transform(leftProgress);
 
     // 왼쪽으로 이동 (음수 값)
-    const leftMoveDistance = -200.0; // 왼쪽으로 이동할 거리
+    const leftMoveDistance = -150.0; // 왼쪽으로 이동할 거리
     return originalLeft + (leftMoveDistance * easedLeftProgress);
   }
 
@@ -187,6 +187,82 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: Stack(
                     children: [
+                      Stack(
+                        children: [
+                          Positioned(
+                            left: _calculateLeft(MediaQuery.of(context).size.width / 2 - 1200, _currentScrollOffset),
+                            bottom: _calculateBottom(20 + kToolbarHeight, _currentScrollOffset),
+                            child: SlideUpAnimation(
+                              delay: const Duration(milliseconds: 400),
+                              child: Image.asset(
+                                'assets/images/${languageProvider.isKorean ? '4' : '4-en'}.png',
+                                width: 600,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: _calculateLeft(MediaQuery.of(context).size.width / 2 - 510, _currentScrollOffset),
+                            bottom: _calculateBottom(-20, _currentScrollOffset),
+                            child: SlideUpAnimation(
+                              delay: const Duration(milliseconds: 200),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: CoconutColors.black, width: 4),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(18),
+                                  child: Image.asset('assets/images/${languageProvider.isKorean ? '1' : '1-en'}.png',
+                                      height: MediaQuery.of(context).size.height / 2.5),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: _calculateLeft(MediaQuery.of(context).size.width / 2 - 270, _currentScrollOffset),
+                            bottom: _calculateBottom(20, _currentScrollOffset),
+                            child: SlideUpAnimation(
+                              delay: const Duration(milliseconds: 600),
+                              child: Image.asset(
+                                'assets/images/${languageProvider.isKorean ? '5' : '5-en'}.png',
+                                width: 600,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: _calculateLeft(MediaQuery.of(context).size.width / 2 + 390, _currentScrollOffset),
+                            bottom: _calculateBottom(120, _currentScrollOffset),
+                            child: SlideUpAnimation(
+                              delay: const Duration(milliseconds: 800),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: CoconutColors.black, width: 4),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(18),
+                                  child: Image.asset('assets/images/${languageProvider.isKorean ? '2' : '2-en'}.png',
+                                      height: MediaQuery.of(context).size.height / 2.5),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: _calculateLeft(MediaQuery.of(context).size.width / 2 + 660, _currentScrollOffset),
+                            bottom: _calculateBottom(-30, _currentScrollOffset),
+                            child: SlideUpAnimation(
+                              delay: const Duration(milliseconds: 1000),
+                              child: Image.asset(
+                                'assets/images/${languageProvider.isKorean ? '6' : '6-en'}.png',
+                                width: 600,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 16),
                         child: Column(
@@ -240,82 +316,6 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(height: 32),
                           ],
                         ),
-                      ),
-                      Stack(
-                        children: [
-                          Positioned(
-                            left: _calculateLeft(640, _currentScrollOffset),
-                            bottom: _calculateBottom(-20, _currentScrollOffset),
-                            child: SlideUpAnimation(
-                              delay: const Duration(milliseconds: 200),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  border: Border.all(color: CoconutColors.black, width: 4),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
-                                  child: Image.asset('assets/images/1.png',
-                                      height: MediaQuery.of(context).size.height / 2.5),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: _calculateLeft(16, _currentScrollOffset),
-                            bottom: _calculateBottom(20 + kToolbarHeight, _currentScrollOffset),
-                            child: SlideUpAnimation(
-                              delay: const Duration(milliseconds: 400),
-                              child: Image.asset(
-                                'assets/images/4.png',
-                                width: 600,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: _calculateLeft(860, _currentScrollOffset),
-                            bottom: _calculateBottom(20, _currentScrollOffset),
-                            child: SlideUpAnimation(
-                              delay: const Duration(milliseconds: 600),
-                              child: Image.asset(
-                                'assets/images/5.png',
-                                width: 600,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: _calculateLeft(1490, _currentScrollOffset),
-                            bottom: _calculateBottom(120, _currentScrollOffset),
-                            child: SlideUpAnimation(
-                              delay: const Duration(milliseconds: 800),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  border: Border.all(color: CoconutColors.black, width: 4),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
-                                  child: Image.asset('assets/images/2.png',
-                                      height: MediaQuery.of(context).size.height / 2.5),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: _calculateLeft(1720, _currentScrollOffset),
-                            bottom: _calculateBottom(-30, _currentScrollOffset),
-                            child: SlideUpAnimation(
-                              delay: const Duration(milliseconds: 1000),
-                              child: Image.asset(
-                                'assets/images/6.png',
-                                width: 600,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                     ],
                   ),
